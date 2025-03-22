@@ -1,6 +1,5 @@
 import { Auth0Provider } from '@auth0/auth0-react';
 import { ReactNode } from 'react';
-// import { useNavigate } from 'react-router-dom';
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -16,7 +15,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL || window.location.origin;
 
   const onRedirectCallback = (appState?: AppState) => {
-    console.log('APP STATE', appState);
     window.history.replaceState(
       {},
       document.title,
@@ -28,7 +26,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     throw new Error('Auth0 domain and client ID are required');
   }
 
-  console.log('Redirect URI:', redirectUri);
   return (
     <Auth0Provider
       domain={domain}

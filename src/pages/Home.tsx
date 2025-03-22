@@ -23,7 +23,6 @@ const Home = () => {
     return <Navigate to="/login" />;
   }
 
-  console.log('user', user);
   const rawCandidateIdentities = user?.candidate_identities ?? [];
   const linkedIdentities = (user?.linked_identities ?? []).map((identity: any) => identity.userId);
 
